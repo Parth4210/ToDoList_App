@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+}
+
+#content {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+}
+
+.sidebar {
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+}
+
+.main {
+    grid-column: 2/3;
+    background-color: grey;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+.createTaskBtn {
+    background-color: #4F39F6;
+    color: white;
+    padding: 15px 0px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    border-style: none;
+    border-radius: 10px;
+}
+
+.createTaskBtn:hover {
+    background-color: #432cf6;
+}
+
+.projectTitle {
+    color: #6F7282;
+}
+
+.addProjectBtn {
+    border-radius: 10px;
+    background-color: white;
+    border-style: none;
+    padding: 10px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.addProjectBtn:hover{
+    background-color: rgb(210, 210, 210);
+}
