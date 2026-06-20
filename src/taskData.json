@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "name": "work",
+      "tasks": [
+        {
+          "id": "task-1",
+          "title": "Review Q2 performance metrics",
+          "dueDate": "2026-05-10",
+          "priority": "High",
+          "description": "Analyze the quarterly performance data and prepare insights for the leadership team meeting.",
+          "notes": "Focus on revenue growth and customer acquisition trends. Include comparison with Q1 data.",
+          "isCompleted": false
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "tasks": [
+        {
+          "id": "task-2",
+          "title": "hello",
+          "dueDate": "2026-06-10",
+          "priority": "Medium",
+          "description": " performance data and prepare insights for the leadership team meeting.",
+          "notes": "revenue growth and customer acquisition trends. Include comparison with Q1 data.",
+          "isCompleted": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-import plusIcon from "./../Assets/Images/plus.png";
 import appTitle from "./sideBarComponents/appTitle.js";
 import projectNamesContainer from "./sideBarComponents/projectNamesContainer.js"
 import projectTitle from "./sideBarComponents/projectTitle.js"

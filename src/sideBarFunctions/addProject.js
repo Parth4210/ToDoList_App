@@ -1,6 +1,5 @@
 import { renderProjectNames } from "../sideBarComponents/projectNamesContainer.js";
-
-const projects = ["work", "home"];
+import { addProject as addProjectToStore, getProjects } from "../taskStore.js";
 
 const removeDialog = (dialog) => {
     dialog.close();
@@ -35,8 +34,8 @@ const handleProjectSubmit = (dialog, input) => {
         return;
     }
 
-    projects.push(projectName);
-    renderProjectNames(projects);
+    addProjectToStore(projectName);
+    renderProjectNames(getProjects());
     removeDialog(dialog);
 };
 
@@ -51,7 +50,7 @@ const addProject = () => {
 };
 
 export const initializeDefaultProjects = () => {
-    renderProjectNames(projects);
+    renderProjectNames(getProjects());
 };
 
 export default addProject;
