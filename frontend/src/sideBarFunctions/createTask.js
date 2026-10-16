@@ -43,7 +43,7 @@ const createDialogBox = () => {
     };
 };
 
-const handleTaskSubmit = (dialog, taskName, description, notes, priority) => {
+const handleTaskSubmit = async (dialog, taskName, description, notes, priority) => {
     const taskNameValue = taskName.value.trim();
     const descriptionValue = description.value.trim();
     const notesValue = notes.value.trim();
@@ -61,24 +61,27 @@ const handleTaskSubmit = (dialog, taskName, description, notes, priority) => {
         return;
     }
 
-    const taskAdded = addTask(projectName, {
-        id: `task-${Date.now()}`,
-        title: taskNameValue,
-        dueDate: now.toDateString(),
-        description: descriptionValue,
-        notes: notesValue,
-        priority: priorityValue,
-        isCompleted: false,
-    });
+    try {
+        const taskAdded = await addTask(projectName, {
+            id: `task-${Date.now()}`,
+            title: taskNameValue,
+            dueDate: now.toDateString(),
+            description: descriptionValue,
+            notes: notesValue,
+            priority: priorityValue,
+            isCompleted: false,
+        });
 
-    if (!taskAdded) {
-        return;
+        if (!taskAdded) {
+            return;
+        }
+
+        renderMain(projectName);
+        renderProjectNames(getProjects());
+        removeDialog(dialog);
+    } catch (error) {
+        console.error(error);
     }
-
-    renderMain(projectName);
-    renderProjectNames(getProjects());
-
-    removeDialog(dialog);
 };
 
 

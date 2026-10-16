@@ -20,7 +20,7 @@ export const createProjectButton = (projectName) => {
     return projectBtn;
 };
 
-export const    renderProjectNames = (projects) => {
+export const renderProjectNames = (projects) => {
     projectNamesContainer.replaceChildren();
 
     projects.forEach((projectName) => {

@@ -1,5 +1,5 @@
 import { renderProjectNames } from "../sideBarComponents/projectNamesContainer.js";
-import { addProject as addProjectToStore, getProjects } from "../taskStore.js";
+import { addProject as addProjectToStore, getProjects, loadProjects } from "../taskStore.js";
 
 const removeDialog = (dialog) => {
     dialog.close();
@@ -26,7 +26,7 @@ const createDialogBox = () => {
     };
 };
 
-const handleProjectSubmit = (dialog, input) => {
+const handleProjectSubmit = async (dialog, input) => {
     const projectName = input.value.trim();
 
     if (!projectName) {
@@ -34,9 +34,13 @@ const handleProjectSubmit = (dialog, input) => {
         return;
     }
 
-    addProjectToStore(projectName);
-    renderProjectNames(getProjects());
-    removeDialog(dialog);
+    try {
+        await addProjectToStore(projectName);
+        renderProjectNames(getProjects());
+        removeDialog(dialog);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 const addProject = () => {
@@ -49,7 +53,12 @@ const addProject = () => {
     input.focus();
 };
 
-export const initializeDefaultProjects = () => {
+export const initializeDefaultProjects = async () => {
+    try {
+        await loadProjects();
+    } catch (error) {
+        console.error(error);
+    }
     renderProjectNames(getProjects());
 };
 

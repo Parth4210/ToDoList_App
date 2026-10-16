@@ -68,21 +68,25 @@ const taskCard = (task) => {
     card.append(topRow, details)
 
     // Remove the task, then rerender the current project and sidebar counts.
-    deleteBtn.addEventListener("click", () => {
+    deleteBtn.addEventListener("click", async () => {
         const projectName = getActiveProject()
 
         if (!projectName) {
             return
         }
 
-        const taskRemoved = removeTask(projectName, task.id)
+        try {
+            const taskRemoved = await removeTask(projectName, task.id)
 
-        if (!taskRemoved) {
-            return
+            if (!taskRemoved) {
+                return
+            }
+
+            renderMain(projectName)
+            renderProjectNames(getProjects())
+        } catch (error) {
+            console.error(error)
         }
-
-        renderMain(projectName)
-        renderProjectNames(getProjects())
     })
 
     // Adding functionality to the checkbox to make a line on the text
